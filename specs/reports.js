@@ -12,21 +12,31 @@ function reports() {
             await util.wait(2000)
 
             /* ==================Generic Report====================== */   
-            const todayRadioBtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/div/mat-radio-group/mat-radio-button[1]/label/span[1]/span[2]')
+            // const todayGRBtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/div/mat-radio-group/mat-radio-button[1]/label/span[1]/span[2]')
+            const lastweekGRBtn =$('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/div/mat-radio-group/mat-radio-button[2]/label/span[1]/span[2]')
             const genericDroopdown = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/mat-form-field[1]/div/div[1]/div/mat-select/div/div[1]/span')
-            const dropdown= $('//*[@value="1"]')
-            const genericbtnsubmit = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
+            const dropdownGR= $('//*[@value="1"]')
+            const submitGRcbtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
+            const closeGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button/span[1]/mat-icon')
             
             
-            await (await todayRadioBtn).click()
+            // await (await todayGRBtn).click()
+            // await util.wait(2000);
+            await (await lastweekGRBtn).click()
             await util.wait(2000);
             await (await genericDroopdown).click()
             await util.wait(2000);
-            await (await dropdown).click()
-            console.log("====================== element name: ",dropdown.getText());
+            await (await dropdownGR).click()
             await util.wait(2000);
-            await (await genericbtnsubmit).click()
+            await (await submitGRcbtn).click()
+            await util.wait(4000);
+
+            const downloadGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button')
+
+            await (await downloadGRbtn).click()
             await util.wait(6000);
+            // await (await closeGRbtn).click()
+            // await util.wait(6000);
 
         })
     ))
