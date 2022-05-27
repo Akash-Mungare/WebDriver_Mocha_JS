@@ -17,7 +17,7 @@ function reports() {
             const genericDroopdown = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/mat-form-field[1]/div/div[1]/div/mat-select/div/div[1]/span')
             const dropdownGR= $('//*[@value="1"]')
             const submitGRcbtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
-            const closeGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button/span[1]/mat-icon')
+            // const closeGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button/span[1]/mat-icon')
             
             
             // await (await todayGRBtn).click()
@@ -31,12 +31,14 @@ function reports() {
             await (await submitGRcbtn).click()
             await util.wait(4000);
 
-            const downloadGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button')
+            const downloadGRbtn = $('/html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/div[1]/div[2]/span/button')
+            const cancelGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button')
+            
 
             await (await downloadGRbtn).click()
             await util.wait(6000);
-            // await (await closeGRbtn).click()
-            // await util.wait(6000);
+            await (await cancelGRbtn).click()
+            await util.wait(6000);
 
         })
     ))
