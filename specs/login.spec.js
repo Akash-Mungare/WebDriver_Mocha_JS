@@ -12,10 +12,10 @@ function process() {
             const submitBtn = $("//html/body/app-root/div[2]/app-login/div/form/button")
 
             await (await user).setValue('akashmungare112@gmail.com')
-            console.log("===========================userName: ",user)
+            // console.log("===========================userName: ",user)
             // await util.wait(2000);
             await (await password).setValue('Akash@123')
-            console.log("==========================password: ",password)
+            // console.log("==========================password: ",password)
             // await util.wait(2000);
             await (await submitBtn).click()
             // await util.wait(2000);
