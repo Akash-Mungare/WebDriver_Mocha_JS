@@ -22,7 +22,7 @@ function process() {
 
             // const manageDevices = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav/div/mat-list/mat-list-item[2]/div/div[2]')
             // await (await manageDevices).click()
-            await util.wait(2000);
+            await util.wait(5000);
 
         })
     })

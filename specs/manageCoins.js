@@ -8,7 +8,7 @@ function manageCoins(){
         it('Manage Coins', async () => {
             const coins = $('//*[@id="mat-tab-label-1-1"]/div/button')
             await (await coins).click()
-            await wait(2000);
+            await util.wait(2000);
 
         })
     })
