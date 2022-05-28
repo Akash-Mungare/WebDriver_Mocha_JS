@@ -15,21 +15,42 @@ function reports() {
             // const todayGRBtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/div/mat-radio-group/mat-radio-button[1]/label/span[1]/span[2]')
             const lastweekGRBtn =$('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/div/mat-radio-group/mat-radio-button[2]/label/span[1]/span[2]')
             const genericDroopdown = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/form/mat-form-field[1]/div/div[1]/div/mat-select/div/div[1]/span')
-            const dropdownGR1= $('//*[@value="1"]')
-            // const dropdownGR2= $('//*[@value="2"]')
-            // const dropdownGR3= $('//*[@value="3"]')
-            // const dropdownGR4= $('//*[@value="4"]')
+            await (await lastweekGRBtn).click()
+            await util.wait(2000);
+            await (await genericDroopdown).click()
+            await util.wait(2000);            
+            const x = Math.floor(Math.random() * 4) +1
+
+            for(let i = x;i<=4 ; i++){
+
+                const dropdownGR= $(`//*[@value="${i}"]`)
+                const attrGr =  await dropdownGR.getAttribute('value')
+                const assetNameGR = $('//*[@formcontrolname="deviceName"]')
+                console.log("========================================attr:",attrGr);
+
+
+                if (attrGr == "1" || attrGr == "4") {
+                    await (await dropdownGR).click()
+                    await util.wait(2000);                
+                } else {
+                    await (await dropdownGR).click()
+                    await util.wait(2000);
+                    await (await assetNameGR).setValue("Akash");
+                    await util.wait(2000);
+                }
+
+            }
+            
+            
             const submitGRcbtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
             // const closeGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button/span[1]/mat-icon')
             
             // await (await todayGRBtn).click()
             // await util.wait(2000);
-            await (await lastweekGRBtn).click()
-            await util.wait(2000);
-            await (await genericDroopdown).click()
-            await util.wait(2000);
-            await (await dropdownGR1).click()
-            await util.wait(2000);
+            
+            
+                
+            
             // await (await dropdownGR2).click()
             // await util.wait(2000);
             // await (await dropdownGR3).click()
@@ -53,10 +74,8 @@ function reports() {
 
         // it('Location wise Report',async ( )=> {
 
-
-        // });
-    });
-    
-}
+            // const     
+    }
+)};
 
 module.exports = reports
