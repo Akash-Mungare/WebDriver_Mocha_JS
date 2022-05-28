@@ -96,21 +96,33 @@ function manageAssets() {
 
             const flashToggle = $('//*[@class="mat-simple-snackbar ng-star-inserted"]')
 
-            for(let i=11;i<15;i++){
+            for(let i=1;i<10;i++){
                 const Assettoggle = $(`//html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-manage-asset/mat-tab-group/div/mat-tab-body[1]/div/app-manage-device/div[2]/table/tbody/tr[${i}]/td[4]/span/mat-slide-toggle/label/div`)
                 // const isdeleted = $(`//*[@id="mat-slide-toggle-1-input"]/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-manage-asset/mat-tab-group/div/mat-tab-body[1]/div/app-manage-device/div[2]/table/tbody/tr[${i}]/td[4]/span/mat-slide-toggle/label/div/input`)
                 // await expect(isdeleted).toHaveValue('aria-checked', { ignoreCase: true })
-               
-                await util.wait(2000)
-                Assettoggle.scrollIntoView()
-                // Assettoggle.moveTo();
-                await util.wait(2000)
-                await (await Assettoggle).click();
-                browser.acceptAlert();
-                await util.wait(2000) 
+                // let elm = $('//*[@aria-checked="false"]')
+                // let isdeleted = await elm.isExisting()
+                // const isDeleted = $('#false')
+                // console.log(`=================isDeleted ${i}============= : `,isDeleted.$('#false'))
+
+
+
+                const isDeleted = $(`/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-manage-asset/mat-tab-group/div/mat-tab-body[1]/div/app-manage-device/div[2]/table/tbody/tr[${i}]/td[4]/span/mat-slide-toggle/label/div/input`)
+                const attr = await isDeleted.getAttribute('aria-checked')
+                console.log(`=================isDeleted ${i}============= : `,typeof(attr))
+                if(attr == "false"){
+                    console.log(`=================deviceID ============= : `, i)
+                    await util.wait(2000)
+                    Assettoggle.scrollIntoView()
+                    Assettoggle.moveTo();
+                    await util.wait(2000)
+                    await (await Assettoggle).click();
+                    browser.acceptAlert();
+                    await util.wait(2000) 
+                }
             
             }
-            await expect(flashToggle).toHaveTextContaining("Device ToggleStatus updated successfully");
+            // await expect(flashToggle).toHaveTextContaining("Device ToggleStatus updated successfully");
 
         })
     })
