@@ -26,23 +26,42 @@ function reports() {
                 const dropdownGR= $(`//*[@value="${i}"]`)
                 const attrGr =  await dropdownGR.getAttribute('value')
                 const assetNameGR = $('//*[@formcontrolname="deviceName"]')
+                const submitGRcbtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
                 console.log("========================================attr:",attrGr);
 
 
                 if (attrGr == "1" || attrGr == "4") {
                     await (await dropdownGR).click()
                     await util.wait(2000);                
+                    await (await submitGRcbtn).click()
+                    await util.wait(4000);
                 } else {
                     await (await dropdownGR).click()
                     await util.wait(2000);
-                    await (await assetNameGR).setValue("Akash");
+                    await (await assetNameGR).setValue("Prod 1");
+                    const suggestionGR = $('//*[@class="mat-option-text"]')
+                    await (await suggestionGR).click();
                     await util.wait(2000);
+                    await (await submitGRcbtn).click()
+                    
                 }
+
+                await util.wait(4000);
+                const downloadGRbtn = $('/html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/div[1]/div[2]/span/button')
+            
+                const cancelGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button')
+                console.log("=======================Download Button========================",await downloadGRbtn.$$('span')[0].$('span').getText())
+
+                await (await downloadGRbtn).click()
+                await util.wait(6000);
+                await (await cancelGRbtn).click()
+                await util.wait(6000);
+                break;
 
             }
             
             
-            const submitGRcbtn = $('/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-report/div/mat-card[1]/mat-card-content/button')
+            
             // const closeGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button/span[1]/mat-icon')
             
             // await (await todayGRBtn).click()
@@ -57,18 +76,9 @@ function reports() {
             // await util.wait(2000);
             // await (await dropdownGR4).click()
             // await util.wait(2000);
-            await (await submitGRcbtn).click()
-            await util.wait(4000);
-
-            const downloadGRbtn = $('/html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/div[1]/div[2]/span/button')
             
-            const cancelGRbtn = $('//html/body/div[2]/div[2]/div/mat-dialog-container/app-asset-report/button')
-            console.log("=======================Download Button========================",await downloadGRbtn.$$('span')[0].$('span').getText())
 
-            await (await downloadGRbtn).click()
-            await util.wait(6000);
-            await (await cancelGRbtn).click()
-            await util.wait(6000);
+            
 
         });
 
