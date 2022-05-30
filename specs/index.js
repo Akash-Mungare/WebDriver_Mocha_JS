@@ -4,3 +4,5 @@ const login = require('./login.spec')();
 // const reports = require('./reports')();
 // const geofenceDashboard = require('./geofenceDashboard')();
 const home = require('./home')();
+
+browser.closeWindow();
