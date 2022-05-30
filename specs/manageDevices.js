@@ -6,8 +6,8 @@ const util = require('./util');
 
 /*--------Adding Assets in Manage Device Tab-------------- */
 function manageAssets() {
-    describe('Manage Devices', () => {
-        it('Manage Assets', async () => {
+    describe('Manage Assets', () => {
+        it('Adding Assets', async () => {
             // const addAssetBtn = $("//*[@class='mat-focus-indicator mat-raised-button mat-button-base']")
             // const addAsset = $("//*[@formcontrolname='deviceId']")
             // const Assetsubmit = $("//*[@class='mat-focus-indicator mat-raised-button mat-button-base mat-primary']")
@@ -16,14 +16,14 @@ function manageAssets() {
             // await (await addAssetBtn).click()
             // await util.wait(2000)
 
-/*======================================================================== */
+        /*======================================================================== */
             /*------Adding single Assets-------*/
             // await (await addAsset).setValue(i)
             // await util.wait(2000)
             // await (await Assetsubmit).click()
             // await util.wait(2000)
 
-/*======================================================================== */
+        /*======================================================================== */
 
             /*------Adding Multiple Assets-------*/
             // for (let i=100;i<=110;i++){
@@ -43,52 +43,62 @@ function manageAssets() {
 
             // const closeBtn = $("//*[@class='mat-focus-indicator float-right mat-button mat-button-base']")
             // await util.wait(2000)
+        });
 
 
-/*======================================================================== */
 
+        /*======================================================================== */
+
+        it('Deleting Assets', async () => {
             /*------Deleting Assets-------*/
 
-            // const delAssetbtn = $("#mat-tab-content-1-0 > div > app-manage-device > div.mat-elevation-z8 > table > tbody > tr:nth-child(12) > td.mat-cell.cdk-cell.mat-tooltip-trigger.cursor.cdk-column-delete.mat-column-delete.ng-star-inserted")
+            const delAssetbtn = $("#mat-tab-content-1-0 > div > app-manage-device > div.mat-elevation-z8 > table > tbody > tr:nth-child(12) > td.mat-cell.cdk-cell.mat-tooltip-trigger.cursor.cdk-column-delete.mat-column-delete.ng-star-inserted");
             /*// delAssetbtn.moveTo({ xOffset:0, yOffset:0 })*/
-            // delAssetbtn.scrollIntoView()
-            // await (await delAssetbtn).click()
+            delAssetbtn.scrollIntoView();
+            await (await delAssetbtn).click();
             
-            // browser.acceptAlert();
-            // driver.switchTo().alert().accept();
-            // await util.wait(4000)
+            browser.acceptAlert();
+            driver.switchTo().alert().accept();
+            await util.wait(4000);
+        });
+            
 
-/*======================================================================== */
+        /*======================================================================== */
 
+
+        it('Editing Assets', async () => {
             /*------Edit Assets-------*/
-            // await util.wait(4000)
-            // const editAsset = $("#mat-tab-content-1-0 > div > app-manage-device > div.mat-elevation-z8 > table > tbody > tr:nth-child(12) > td.mat-cell.cdk-cell.mat-tooltip-trigger.cursor.cdk-column-edit.mat-column-edit.ng-star-inserted")
-            // editAsset.scrollIntoView()
-            // await (await editAsset).click()
-            // await util.wait(4000)
-            // const editAssetName = $('//*[@formcontrolname="deviceName"]')
-            // // const editAssetId = $('//*[@formcontrolname="deviceId"]')
-            // const submitBtn1 = $('//*[@class="mat-focus-indicator mat-raised-button mat-button-base mat-primary"]')
-            // const flashAsset = $('//*[@class="mat-simple-snackbar ng-star-inserted"]')
+            // await util.wait(4000);
+            // const editAsset = $("#mat-tab-content-1-0 > div > app-manage-device > div.mat-elevation-z8 > table > tbody > tr:nth-child(12) > td.mat-cell.cdk-cell.mat-tooltip-trigger.cursor.cdk-column-edit.mat-column-edit.ng-star-inserted");
+            // editAsset.scrollIntoView();
+            // await (await editAsset).click();
+            // await util.wait(4000);
+            // const editAssetName = $('//*[@formcontrolname="deviceName"]');
+            // // const editAssetId = $('//*[@formcontrolname="deviceId"]');
+            // const submitBtn1 = $('//*[@class="mat-focus-indicator mat-raised-button mat-button-base mat-primary"]');
+            // const flashAsset = $('//*[@class="mat-simple-snackbar ng-star-inserted"]');
 
-            // await (await editAssetName).setValue("Akash")
-            // await util.wait(4000)
-            // // await (await editAssetId).setValue("1111")
-            // // await util.wait(4000)
-            // await (await submitBtn1).click()
-            // await util.wait(4000)
+            // await (await editAssetName).setValue("Akash");
+            // await util.wait(4000);
+            // // await (await editAssetId).setValue("1111");
+            // // await util.wait(4000);
+            // await (await submitBtn1).click();
+            // await util.wait(4000);
 
-            // await expect(flashAsset).toHaveTextContaining("userId or deviceName already exists.")
-            // await expect(flashAsset).toHaveTextContaining("Asset updated successfully")
+            // await expect(flashAsset).toHaveTextContaining("userId or deviceName already exists.");
+            // await expect(flashAsset).toHaveTextContaining("Asset updated successfully");
+        });
+
             
-/*======================================================================== */
+            
+        /*======================================================================== */
 
-
-            /*------Single Toggle On-------*/
-            // const Assettoggle = $('//*[@id="mat-slide-toggle-7"]')
-            // await util.wait(4000)
-            // Assettoggle.scrollIntoView()
-            // await util.wait(4000)
+        it('Toggle On', async () => {
+                /*------Single Toggle On-------*/
+            // const Assettoggle = $('//*[@id="mat-slide-toggle-7"]');
+            // await util.wait(4000);
+            // Assettoggle.scrollIntoView();
+            // await util.wait(4000);
             // await (await Assettoggle).click();
             // browser.acceptAlert();
 
@@ -99,11 +109,11 @@ function manageAssets() {
             for(let i=1;i<10;i++){
                 const Assettoggle = $(`//html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-manage-asset/mat-tab-group/div/mat-tab-body[1]/div/app-manage-device/div[2]/table/tbody/tr[${i}]/td[4]/span/mat-slide-toggle/label/div`)
                 // const isdeleted = $(`//*[@id="mat-slide-toggle-1-input"]/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-manage-asset/mat-tab-group/div/mat-tab-body[1]/div/app-manage-device/div[2]/table/tbody/tr[${i}]/td[4]/span/mat-slide-toggle/label/div/input`)
-                // await expect(isdeleted).toHaveValue('aria-checked', { ignoreCase: true })
-                // let elm = $('//*[@aria-checked="false"]')
-                // let isdeleted = await elm.isExisting()
-                // const isDeleted = $('#false')
-                // console.log(`=================isDeleted ${i}============= : `,isDeleted.$('#false'))
+                // await expect(isdeleted).toHaveValue('aria-checked', { ignoreCase: true });
+                // let elm = $('//*[@aria-checked="false"]');
+                // let isdeleted = await elm.isExisting();
+                // const isDeleted = $('#false');
+                // console.log(`=================isDeleted ${i}============= : `,isDeleted.$('#false'));
 
 
 
@@ -123,9 +133,10 @@ function manageAssets() {
             
             }
             // await expect(flashToggle).toHaveTextContaining("Device ToggleStatus updated successfully");
+        });
+        
 
-        })
-    })
+    });
 }
 
 
