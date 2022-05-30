@@ -45,9 +45,9 @@ function home(){
             for (let i=x; i<=2; i++)
             {
                 console.log("=============================== i =", i);
-                const heatDay = $(`/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-heat-map/div[2]/mat-card/mat-card-content/form/div/mat-radio-group/mat-radio-button[${i}]/label/span[1]/span[2]`);
+                const heatDay = $(`//html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-heat-map/div[2]/mat-card/mat-card-content/form/div/mat-radio-group/mat-radio-button[${i}]/label/span[1]`);
                 const heatAssetName = $('//*[@formcontrolname="deviceName"]');
-                const heatSubmit = $("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-heat-map/div[2]/mat-card/mat-card-content/div/button/span[1]");
+                const heatSubmit = $("//html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/div/app-heat-map/div[2]/mat-card/mat-card-content/div/button/span[1]");
                 // const heatClose = $('//*[@class="mat-focus-indicator mat-raised-button mat-button-base mat-primary"]');
                 const heatMap = $('//*[@class="mat-card mat-focus-indicator ml-3 mr-3 card"]');
                 const heatBack = $('//*[@mattooltip="Back to Home page"]');
