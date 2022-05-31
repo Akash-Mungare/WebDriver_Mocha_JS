@@ -13,7 +13,7 @@ function timeTracker() {
             await (await timeLapseDD).click();
             await util.wait(4000);
             const assetNameTL = $('//*[@formcontrolname="deviceId"]');
-            const assetNameSelectTL = $('/html/body/div[2]/div[2]/div/div/div/mat-option[1]/mat-pseudo-checkbox')
+            const assetNameSelectTL = $('//html/body/div[2]/div[2]/div/div/div/mat-option[1]/mat-pseudo-checkbox')
             const startZoneTL = $('//*[@formcontrolname="startZone"]');
             const endZoneTL = $('//*[@formcontrolname="endZone"]');
             const timeTL = $('//*[@type="number"]');
@@ -22,7 +22,19 @@ function timeTracker() {
 
         for(let a=1; a<=2; a++){
             if(a == 1){
-                await
+                await (await assetNameTL).click();
+                await (await assetNameSelectTL).click();
+                await (await startZoneTL).click();
+                await (await endZoneTL).click();
+                await (await timeTL).setValue("150");
+                await (await submitTL).click();
+            }else{
+                await (await assetNameTL).click();
+                await (await assetNameSelectTL).click();
+                await (await startZoneTL).click();
+                await (await endZoneTL).click();
+                await (await timeTL).setValue("150");
+                await (await resetTL).click();
             }
         }
 
