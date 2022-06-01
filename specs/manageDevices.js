@@ -128,7 +128,7 @@ function manageAssets() {
                     await util.wait(2000)
                     await (await Assettoggle).click();
                     browser.acceptAlert();
-                    await util.wait(2000) 
+                    await util.wait(2000);
                 }
             
             }

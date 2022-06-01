@@ -13,30 +13,50 @@ function timeTracker() {
             await (await timeLapseDD).click();
             await util.wait(4000);
             const assetNameTL = $('//*[@formcontrolname="deviceId"]');
-            const assetNameSelectTL = $('//html/body/div[2]/div[2]/div/div/div/mat-option[1]/mat-pseudo-checkbox')
+            const assetNameSelectTL = $('//html/body/div[3]/div[2]/div/div/div/mat-option[5]')
+            const clickTL = $('//*[@class="cdk-overlay-backdrop cdk-overlay-transparent-backdrop cdk-overlay-backdrop-showing"]');
             const startZoneTL = $('//*[@formcontrolname="startZone"]');
+            const startZoneSelectTL = $('//html/body/div[3]/div[2]/div/div/div/mat-option[3]');
             const endZoneTL = $('//*[@formcontrolname="endZone"]');
+            const endZoneSelectTL = $('//html/body/div[3]/div[2]/div/div/div/mat-option[1]');
             const timeTL = $('//*[@type="number"]');
             const submitTL = $('//*[@class="mat-focus-indicator mat-raised-button mat-button-base mat-primary"]')
             const resetTL = $('//*[@class="mat-focus-indicator mat-raised-button mat-button-base mat-primary ng-star-inserted"]');
 
-        for(let a=1; a<=2; a++){
-            if(a == 1){
-                await (await assetNameTL).click();
-                await (await assetNameSelectTL).click();
-                await (await startZoneTL).click();
-                await (await endZoneTL).click();
-                await (await timeTL).setValue("150");
-                await (await submitTL).click();
-            }else{
-                await (await assetNameTL).click();
-                await (await assetNameSelectTL).click();
-                await (await startZoneTL).click();
-                await (await endZoneTL).click();
-                await (await timeTL).setValue("150");
-                await (await resetTL).click();
+            for(let a=1; a<=2; a++){
+                console.log("==================================a: ",a)
+                if(a == 1){
+                    await (await assetNameTL).click();
+                    await util.wait(4000);
+                    await (await assetNameSelectTL).click();
+                    await util.wait(4000);
+                    await (await clickTL).click();
+                    await (await startZoneTL).click();
+                    await util.wait(4000);
+                    await (await startZoneSelectTL).click();
+                    await (await endZoneTL).click();
+                    await util.wait(4000);
+                    await (await endZoneSelectTL).click();
+                    await (await timeTL).setValue("150");
+                    await (await submitTL).click();
+                    await util.wait(8000);
+                }else{
+                    await (await assetNameTL).click();
+                    await util.wait(4000);
+                    await (await assetNameSelectTL).click();
+                    await util.wait(4000);
+                    await (await clickTL).click();
+                    await (await startZoneTL).click();
+                    await util.wait(4000);
+                    await (await startZoneSelectTL).click();
+                    await (await endZoneTL).click();
+                    await util.wait(4000);
+                    await (await endZoneSelectTL).click();
+                    await (await timeTL).setValue("150");
+                    await (await submitTL).click();
+                    await util.wait(8000);
+                }
             }
-        }
 
         });
     });
